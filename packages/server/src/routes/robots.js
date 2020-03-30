@@ -13,7 +13,8 @@ router.use('/', (req, res, next) => {
 });
 
 botRouter.get('/', (req, res) => {
+  const imgUrl = req.app.get('imgUrl');
   res.render('index', {
-    image: req.get('imgUrl')
+    imgUrl
   });
 });
