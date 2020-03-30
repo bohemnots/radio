@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 
-require('dotenv').config({ path: path.join(process.cwd(), '../.env') });
+require('dotenv').config();
 
 const { client, fromInfo, getMetadata } = require('./mongo');
 const live = require('./watch');
@@ -12,7 +12,7 @@ const installStatic = require('./middleware/static');
 
 const port = process.env.PORT || 3000;
 
-app.set('views', path.join(process.cwd(), './views'));
+app.set('views', path.join(process.cwd(), 'src/views'));
 app.set('view engine', 'pug');
 
 const init = async () => {
