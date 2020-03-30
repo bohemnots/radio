@@ -1,0 +1,11 @@
+{
+  "name": "bohemnots",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "client": "yarn workspace client",
+    "server": "yarn workspace server"
+  }
+}

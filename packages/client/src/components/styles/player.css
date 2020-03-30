@@ -1,0 +1,68 @@
+#player img {
+  height: 100px;
+  margin: 20px;
+}
+
+#player-meta {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.m {
+  white-space: nowrap;
+  position: relative;
+}
+
+.m1 {
+  -moz-animation: marquee 10s linear infinite;
+  -webkit-animation: marquee 10s linear infinite;
+  animation: marquee 10s linear infinite;
+}
+
+.m2 {
+  -moz-animation: marquee 10s linear reverse infinite;
+  -webkit-animation: marquee 10s linear reverse infinite;
+  animation: marquee 10s linear reverse infinite;
+}
+
+.t {
+  overflow: hidden;
+  width: 250px;
+}
+
+.t1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.t2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dark .t1 {
+  background-color: #000;
+  color: #fff;
+}
+
+.light .t1 {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark .t2 {
+  color: #000;
+}
+
+.light .t2 {
+  color: #fff;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

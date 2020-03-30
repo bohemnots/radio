@@ -1,0 +1,13 @@
+node_modules
+
+.env
+.idea
+
+# scripts
+.scripts/*.update
+
+# yarn berry
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.pnp.*

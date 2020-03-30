@@ -1,0 +1,39 @@
+#edit {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px black;
+}
+
+#edit label {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#edit input {
+  background-color: transparent;
+  border: black solid 3px;
+  height: 30px;
+}
+
+#edit input {
+  border-color: #000;
+  color: #000;
+  font-size: 20px;
+}
+
+#edit td {
+  text-align: right;
+  padding: 2px;
+}
+
+.block {
+  margin: 10px;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  background-color: #000;
+  vertical-align: middle;
+}

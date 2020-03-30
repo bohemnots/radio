@@ -1,0 +1,30 @@
+.social-links {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  margin: 0 0 0 auto;
+  text-align: right;
+}
+
+.social-links ul {
+  padding: 0;
+  margin: 0;
+}
+
+.social-links li {
+  display: inline-block;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.social-links i {
+  color: #fff;
+}
+
+.dark .social-links {
+  color: #000;
+}
+
+.light .social-links {
+  color: #fff;
+}
