@@ -21,6 +21,7 @@ export default function EditPage() {
       t1Background: target.t1Background.value,
       t2Color: target.t2Color.value,
       t2Background: target.t2Background.value,
+      actionColor: target.actionColor.value,
       password: target.password.value
     };
 
@@ -130,6 +131,22 @@ export default function EditPage() {
                   type="text"
                   name="t2Background"
                   defaultValue={meta.t2Background}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="actionColor">Action Color: </label>
+                <div
+                  className="block"
+                  style={{ backgroundColor: meta.actionColor }}
+                ></div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="actionColor"
+                  defaultValue={meta.actionColor}
                 />
               </td>
             </tr>
