@@ -22,6 +22,7 @@ export default function EditPage() {
       t2Color: target.t2Color.value,
       t2Background: target.t2Background.value,
       actionColor: target.actionColor.value,
+      size: target.size.value,
       password: target.password.value
     };
 
@@ -147,6 +148,18 @@ export default function EditPage() {
                   type="text"
                   name="actionColor"
                   defaultValue={meta.actionColor}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="size">Size in 'rem': </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="size"
+                  defaultValue={meta.size}
                 />
               </td>
             </tr>

@@ -17,10 +17,11 @@ export default function Player(props) {
   const t2Color = meta.t2Color || "";
   const t2Background = meta.t2Background || "";
   const actionColor = meta.actionColor || "none"; // to hide icon until color available
+  const size = meta.size || 10; // to hide icon until color available
 
   return (
     <div id="player">
-      <div className="icon" onClick={toggle}>
+      <div className="icon" style={{ width: `${size}rem` }} onClick={toggle}>
         {isPlaying ? (
           <Pause color={actionColor} />
         ) : (
