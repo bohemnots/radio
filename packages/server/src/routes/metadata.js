@@ -19,7 +19,7 @@ router.patch('/', (req, res, next) => {
     }
   }
   delete req.body.password;
-  update.updatedAt = new Date();
+  update.updatedAt = new Date().toISOString();
   checkPassword(update)
     .then(() => {
       return updateMetadata(update).then(newData => {
