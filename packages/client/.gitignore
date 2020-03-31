@@ -8,9 +8,6 @@
 # testing
 /coverage
 
-# react
-/build
-
 # misc
 .DS_Store
 .env.local
