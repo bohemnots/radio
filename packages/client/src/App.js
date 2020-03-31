@@ -3,13 +3,13 @@ import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-
-import EditPage from "./pages/EditPage";
-import PlayerPage from "./pages/PlayerPage";
+import EditPage from "./components/Edit";
+import PlayerPage from "./components/Player";
 
 import useMeta from "./hooks/useMeta";
 
 import { defaultTheme } from "./config";
+import Layout from "./components/Layout";
 
 function App() {
   const [art, setArt] = React.useState(null);
@@ -34,10 +34,12 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className={meta.theme || defaultTheme}>
         <Header />
-        <Switch>
-          <Route exact path="/" component={PlayerPage} />
-          <Route exact path="/edit" component={EditPage} />
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={PlayerPage} />
+            <Route exact path="/edit" component={EditPage} />
+          </Switch>
+        </Layout>
         <Footer />
       </div>
     </BrowserRouter>
