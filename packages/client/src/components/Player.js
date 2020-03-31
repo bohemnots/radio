@@ -10,7 +10,7 @@ export default function Player(props) {
   const meta = useMeta();
 
   const state = isPlaying ? "pause" : "play";
-  const actionIcon = `/images/${meta.theme}/${state}.png`;
+  const actionIcon = `/images/${state}.svg`;
 
   const t1 = meta ? meta.customName || meta.trackName : "";
   const t2 = meta ? meta.location : "";
@@ -22,14 +22,7 @@ export default function Player(props) {
 
   return (
     <div id="player">
-      <div>
-        <img
-          id="action-img"
-          alt={"Action Icon"}
-          src={actionIcon}
-          onClick={toggle}
-        />
-      </div>
+      <img alt={"Action Icon"} src={actionIcon} onClick={toggle} />
       <div id="player-meta">
         <div
           className="t t1"

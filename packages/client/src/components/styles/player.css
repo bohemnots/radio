@@ -1,6 +1,7 @@
 #player img {
-  height: 100px;
-  margin: 20px;
+  width: 300px;
+  display: block;
+  margin: 20px auto;
 }
 
 #player-meta {
