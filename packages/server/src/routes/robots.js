@@ -13,8 +13,8 @@ router.use('/', (req, res, next) => {
 });
 
 botRouter.get('/', (req, res) => {
-  const imgUrl = req.app.get('imgUrl');
+  const meta = req.app.get('meta');
   res.render('index', {
-    imgUrl
+    meta
   });
 });

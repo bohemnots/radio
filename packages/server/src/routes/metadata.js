@@ -19,11 +19,11 @@ router.patch('/', (req, res, next) => {
     }
   }
   delete req.body.password;
-
+  update.updatedAt = new Date();
   checkPassword(update)
     .then(() => {
       return updateMetadata(update).then(newData => {
-        req.app.set('imgUrl', newData.imgUrl);
+        req.app.set('meta', newData);
         return res.json(newData);
       });
     })

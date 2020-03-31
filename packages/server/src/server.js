@@ -19,7 +19,7 @@ const init = async () => {
   await client.connect();
   const meta = await getMetadata();
 
-  app.set('imgUrl', meta.imgUrl);
+  app.set('meta', meta);
   app.use(cors());
   app.use(bodyParser.json());
   app.use(router);
