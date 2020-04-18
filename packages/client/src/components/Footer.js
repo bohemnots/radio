@@ -17,7 +17,7 @@ export default function Footer() {
       <ul>
         <li>
           <a href={pt} target={target} rel={rel}>
-            <img src="images/donate.svg" width="50" alt="donate" />
+            <img src="images/donate.svg" width="60" alt="donate" />
           </a>
         </li>
         <li>
