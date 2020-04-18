@@ -9,7 +9,7 @@ build
 .scripts/*.update
 
 # yarn berry
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
-.pnp.*
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
