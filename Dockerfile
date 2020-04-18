@@ -14,7 +14,6 @@ COPY packages/client .
 RUN yarn build
 
 FROM node:12.16.2-alpine3.11 AS server
-RUN apk add --no-cache curl
 
 WORKDIR /usr/src
 
