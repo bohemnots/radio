@@ -13,6 +13,7 @@ import Layout from "./components/Layout";
 
 function App() {
   const [art, setArt] = React.useState(null);
+  const [shotFooter, setShowFooter] = React.useState(false);
   const meta = useMeta();
   const body = document.getElementsByTagName("body")[0];
 
@@ -28,6 +29,7 @@ function App() {
   if (meta.imgUrl !== art) {
     setArt(meta.imgUrl);
     updateBackground(meta.imgUrl);
+    setShowFooter(true);
   }
 
   return (
@@ -40,7 +42,7 @@ function App() {
             <Route exact path="/edit" component={EditPage} />
           </Switch>
         </Layout>
-        <Footer />
+        {shotFooter ? <Footer /> : null}
       </div>
     </BrowserRouter>
   );

@@ -9,11 +9,17 @@ const fb = "https://www.facebook.com/bohemnotsradio/";
 const ig = "https://www.instagram.com/bohemnotsradio/";
 const tw = "https://twitter.com/bohemnotsradio";
 const sc = "https://soundcloud.com/bohemnotsradio";
+const pt = "https://www.patreon.com/bohemnotsradio";
 
 export default function Footer() {
   return (
     <nav className="social-links">
       <ul>
+        <li>
+          <a href={pt} target={target} rel={rel}>
+            <img src="images/donate.svg" width="50" alt="donate" />
+          </a>
+        </li>
         <li>
           <a href={fb} target={target} rel={rel}>
             <i className="fa-lg fa fa-facebook"></i>
