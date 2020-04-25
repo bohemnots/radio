@@ -6,7 +6,7 @@ import useMeta from "../hooks/useMeta";
 import "./styles/player.css";
 
 export default function Player(props) {
-  const [isPlaying, toggle] = usePlayer();
+  const [isPlaying, toggle, play, pause] = usePlayer();
   const meta = useMeta();
 
   const t1 = meta ? meta.customName || meta.trackName : "";
@@ -19,14 +19,29 @@ export default function Player(props) {
   const actionColor = meta.actionColor || "none"; // to hide icon until color available
   const size = meta.size || 10; // to hide icon until color available
 
+  React.useEffect(() => {
+    if ('mediaSession' in navigator) {
+      // eslint-disable-next-line
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: t1,
+        artwork: [
+          { src: 'https://bohemnotsradio.com/favicon.ico', type: 'image/x-icon' }
+        ]
+      });
+      navigator.mediaSession.setActionHandler('play', play);
+      navigator.mediaSession.setActionHandler('pause', pause);
+    }
+  }
+  );
+
   return (
     <div id="player">
       <div className="icon" style={{ width: `${size}rem` }} onClick={toggle}>
         {isPlaying ? (
           <Pause color={actionColor} />
         ) : (
-          <Play color={actionColor} />
-        )}
+            <Play color={actionColor} />
+          )}
       </div>
       <div id="player-meta">
         <div

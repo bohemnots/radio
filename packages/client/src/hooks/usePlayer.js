@@ -27,11 +27,8 @@ export default function usePlayer() {
   }, []);
 
   const offline = React.useCallback(() => {
-    setState(false)
+    setState(false);
   }, []);
-
-
-
 
   React.useEffect(() => {
     window.addEventListener("online", online);
@@ -46,5 +43,5 @@ export default function usePlayer() {
     }
   }, [firstTime, play]);
 
-  return [!audio.current.paused, toggle];
+  return [!audio.current.paused, toggle, play, pause];
 }
