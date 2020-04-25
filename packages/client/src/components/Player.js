@@ -31,8 +31,7 @@ export default function Player(props) {
       navigator.mediaSession.setActionHandler('play', play);
       navigator.mediaSession.setActionHandler('pause', pause);
     }
-  }
-  );
+  }, [t1]);
 
   return (
     <div id="player">
