@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { Howl } from "howler";
 
-import usePlayer from "../hooks/usePlayer";
 import useMeta from "../hooks/useMeta";
 
 import "./styles/player.css";
+import { streamUrl } from "../config";
 
-export default function Player(props) {
-  const [isPlaying, toggle, play, pause] = usePlayer();
+export default function Player() {
+  const [isPlaying, setIsPlaying] = useState(false);
   const meta = useMeta();
 
   const t1 = meta ? meta.customName || meta.trackName : "";
@@ -19,7 +20,16 @@ export default function Player(props) {
   const actionColor = meta.actionColor || "none"; // to hide icon until color available
   const size = meta.size || 10; // to hide icon until color available
 
-  React.useEffect(() => {
+  const audio = useMemo(() => {
+    return new Howl({
+      src: streamUrl,
+      html5: true,
+      autoplay: true
+    })
+  }, [])
+
+
+  useEffect(() => {
     if ('mediaSession' in navigator) {
       // eslint-disable-next-line
       navigator.mediaSession.metadata = new MediaMetadata({
@@ -28,14 +38,24 @@ export default function Player(props) {
           { src: 'https://bohemnotsradio.com/favicon.ico', type: 'image/x-icon' }
         ]
       });
-      navigator.mediaSession.setActionHandler('play', play);
-      navigator.mediaSession.setActionHandler('pause', pause);
     }
-  }, [t1, play, pause]);
+  }, [t1]);
+
+  useEffect(() => {
+    audio.on('stop', () => setIsPlaying(false))
+    audio.on('play', () => setIsPlaying(true))
+  }, [audio])
+
+  const play = () => {
+    audio.play();
+  }
+  const pause = () => {
+    audio.stop();
+  }
 
   return (
     <div id="player">
-      <div className="icon" style={{ width: `${size}rem` }} onClick={toggle}>
+      <div className="icon" style={{ width: `${size}rem` }} onClick={isPlaying ? pause : play}>
         {isPlaying ? (
           <Pause color={actionColor} />
         ) : (
