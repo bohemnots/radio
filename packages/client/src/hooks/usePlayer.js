@@ -10,7 +10,10 @@ export default function usePlayer() {
   const [state, setState] = React.useState(false);
 
   const pause = useCallback(() => audio.current.pause(), [audio]);
-  const play = useCallback(() => audio.current.play(), [audio]);
+  const play = useCallback(() => {
+    audio.current.load()
+    audio.current.play().catch(err => { })
+  }, [audio]);
 
   const toggle = () => {
     audio.current.paused ? play() : pause()
@@ -21,10 +24,9 @@ export default function usePlayer() {
     if (!audio.current.paused) {
       return;
     }
-    audio.current.load();
     window.focus();
-    audio.current.play().catch(() => { });
-  }, []);
+    play();
+  }, [play]);
 
   const offline = React.useCallback(() => {
     setState(false);
@@ -34,11 +36,11 @@ export default function usePlayer() {
     window.addEventListener("online", online);
     window.addEventListener("offline", offline);
     return () => window.removeEventListener("online", online);
-  });
+  }, [offline, online]);
 
   React.useEffect(() => {
     if (firstTime) {
-      play().catch(console.error)
+      play()
       setFirstTime(false);
     }
   }, [firstTime, play]);
