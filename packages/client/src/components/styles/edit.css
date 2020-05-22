@@ -12,13 +12,13 @@
   font-weight: bold;
 }
 
-#edit input {
+#edit input, #edit textarea {
   background-color: transparent;
   border: black solid 3px;
   height: 30px;
 }
 
-#edit input {
+#edit input, #edit textarea {
   border-color: #000;
   color: #000;
   font-size: 20px;

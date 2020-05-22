@@ -13,6 +13,11 @@ export default function Player() {
   const t1 = meta ? meta.text1 || meta.trackName : "";
   const t2 = meta ? meta.text2 : "";
 
+  const link = meta ? meta.link : "";
+  const linkTitle = meta ? meta.linkTitle : "";
+  const linkColor = meta ? meta.linkColor : "";
+  const linkBackground = meta ? meta.linkBackground : "";
+
   const t1Color = meta.t1Color || "";
   const t1Background = meta.t1Background || "";
   const t2Color = meta.t2Color || "";
@@ -75,6 +80,11 @@ export default function Player() {
         >
           <div>{t2}</div>
         </div>
+        {link ?
+          <div className="t t2">
+            <a style={{ color: linkColor, backgroundColor: linkBackground }} href={link}>{linkTitle || link}</a>
+          </div>
+          : null}
       </div>
     </div>
   );

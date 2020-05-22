@@ -16,7 +16,9 @@ export default function EditPage() {
     const newData = {
       text1: target.text1.value,
       text2: target.text2.value,
-      text3: target.text3.value,
+      link: target.link.value,
+      linkColor: target.linkColor.value,
+      linkBackground: target.linkBackground.value,
       imgUrl: target.imgUrl.value,
       t1Color: target.t1Color.value,
       t1Background: target.t1Background.value,
@@ -107,7 +109,7 @@ export default function EditPage() {
                 <label htmlFor="text2">Value: </label>
               </td>
               <td>
-                <input
+                <textarea
                   type="text"
                   name="text2"
                   defaultValue={meta.text2}
@@ -144,6 +146,59 @@ export default function EditPage() {
                   className="block"
                   style={{ backgroundColor: meta.t2Background }}
                 ></div>
+              </td>
+            </tr>
+            <tr>
+              <th align="center" colSpan="3">
+                <label>Link</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="link">Value: </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="link"
+                  defaultValue={meta.link}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="linkTitle">Title: </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="linkTitle"
+                  defaultValue={meta.linkTitle}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="linkColor">Color: </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="linkColor"
+                  defaultValue={meta.linkColor}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="linkBackground">Background: </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="linkBackground"
+                  defaultValue={meta.linkBackground}
+                />
               </td>
             </tr>
             <tr>
