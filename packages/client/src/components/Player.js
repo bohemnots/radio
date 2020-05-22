@@ -10,8 +10,8 @@ export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false);
   const meta = useMeta();
 
-  const t1 = meta ? meta.customName || meta.trackName : "";
-  const t2 = meta ? meta.location : "";
+  const t1 = meta ? meta.text1 || meta.trackName : "";
+  const t2 = meta ? meta.text2 : "";
 
   const t1Color = meta.t1Color || "";
   const t1Background = meta.t1Background || "";

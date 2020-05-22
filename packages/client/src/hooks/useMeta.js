@@ -6,10 +6,9 @@ export default function useMeta() {
   const [isLoading, setIsLoading] = React.useState(false);
 
   const [meta, setMeta] = React.useState({
-    theme: "dark",
-    customName: '',
+    text1: '',
+    text2: '',
     trackName: '',
-    location: '',
     imgUrl: null
   });
 

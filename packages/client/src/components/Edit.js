@@ -14,8 +14,9 @@ export default function EditPage() {
     e.preventDefault();
 
     const newData = {
-      customName: target.customName.value,
-      location: target.location.value,
+      text1: target.text1.value,
+      text2: target.text2.value,
+      text3: target.text3.value,
       imgUrl: target.imgUrl.value,
       t1Color: target.t1Color.value,
       t1Background: target.t1Background.value,
@@ -48,28 +49,107 @@ export default function EditPage() {
         <table>
           <tbody>
             <tr>
+              <th align="center" colSpan="3">
+                <label >Text 1</label>
+              </th>
+            </tr>
+            <tr>
               <td>
-                <label htmlFor="customName">Track Name: </label>
+                <label htmlFor="text1">Value: </label>
               </td>
               <td>
                 <input
                   type="text"
-                  name="customName"
-                  defaultValue={meta.customName}
+                  name="text1"
+                  defaultValue={meta.text1}
                 />
               </td>
             </tr>
             <tr>
               <td>
-                <label htmlFor="location">Location: </label>
+                <label htmlFor="t1Color">Color: </label>
+              </td>
+              <td>
+                <input type="text" name="t1Color" defaultValue={meta.t1Color} />
+              </td>
+              <td>
+                <div
+                  className="block"
+                  style={{ backgroundColor: meta.t1Color }}
+                ></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="t1Background">Background: </label>
               </td>
               <td>
                 <input
                   type="text"
-                  name="location"
-                  defaultValue={meta.location}
+                  name="t1Background"
+                  defaultValue={meta.t1Background}
                 />
               </td>
+              <td>
+                <div
+                  className="block"
+                  style={{ backgroundColor: meta.t1Background }}
+                ></div>
+              </td>
+            </tr>
+            <tr>
+              <th align="center" colSpan="3">
+                <label >Text 2</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="text2">Value: </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="text2"
+                  defaultValue={meta.text2}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="t2Color">Color: </label>
+              </td>
+              <td>
+                <input type="text" name="t2Color" defaultValue={meta.t2Color} />
+              </td>
+              <td>
+                <div
+                  className="block"
+                  style={{ backgroundColor: meta.t2Color }}
+                ></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="t2Background">Background: </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="t2Background"
+                  defaultValue={meta.t2Background}
+                />
+              </td>
+              <td>
+                <div
+                  className="block"
+                  style={{ backgroundColor: meta.t2Background }}
+                ></div>
+              </td>
+            </tr>
+            <tr>
+              <th align="center" colSpan="3">
+                <label>Other</label>
+              </th>
             </tr>
             <tr>
               <td>
@@ -81,67 +161,7 @@ export default function EditPage() {
             </tr>
             <tr>
               <td>
-                <label htmlFor="t1Color">T1 Color: </label>
-                <div
-                  className="block"
-                  style={{ backgroundColor: meta.t1Color }}
-                ></div>
-              </td>
-              <td>
-                <input type="text" name="t1Color" defaultValue={meta.t1Color} />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label htmlFor="t2Color">T2 Color: </label>
-                <div
-                  className="block"
-                  style={{ backgroundColor: meta.t2Color }}
-                ></div>
-              </td>
-              <td>
-                <input type="text" name="t2Color" defaultValue={meta.t2Color} />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label htmlFor="t1Background">T1 Background: </label>
-                <div
-                  className="block"
-                  style={{ backgroundColor: meta.t1Background }}
-                ></div>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="t1Background"
-                  defaultValue={meta.t1Background}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label htmlFor="t2Background">T2 Background: </label>
-                <div
-                  className="block"
-                  style={{ backgroundColor: meta.t2Background }}
-                ></div>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="t2Background"
-                  defaultValue={meta.t2Background}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <label htmlFor="actionColor">Action Color: </label>
-                <div
-                  className="block"
-                  style={{ backgroundColor: meta.actionColor }}
-                ></div>
               </td>
               <td>
                 <input
@@ -149,6 +169,12 @@ export default function EditPage() {
                   name="actionColor"
                   defaultValue={meta.actionColor}
                 />
+              </td>
+              <td>
+                <div
+                  className="block"
+                  style={{ backgroundColor: meta.actionColor }}
+                ></div>
               </td>
             </tr>
             <tr>
@@ -164,17 +190,20 @@ export default function EditPage() {
               </td>
             </tr>
             <tr>
+              <td colSpan="3"><hr /></td>
+            </tr>
+            <tr>
               <td>
                 <label htmlFor="password">Password: </label>
               </td>
               <td>
                 <input type="password" name="password" defaultValue={""} />
               </td>
-            </tr>
-            <tr>
               <td>
                 <input type="submit" value="Update" />
               </td>
+            </tr>
+            <tr>
               <td>{message}</td>
             </tr>
           </tbody>
