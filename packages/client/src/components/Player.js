@@ -82,7 +82,13 @@ export default function Player() {
         </div>
         {link ?
           <div className="t t2">
-            <a style={{ color: linkColor, backgroundColor: linkBackground }} href={link}>{linkTitle || link}</a>
+            <a
+              style={{ color: linkColor, backgroundColor: linkBackground }}
+              target="_blank"
+              rel="noopener noreferrer"
+              href={link}>
+              {linkTitle || link}
+            </a>
           </div>
           : null}
       </div>
