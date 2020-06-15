@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, BrowserRouter, Route } from "react-router-dom";
+import { Switch, BrowserRouter, Route, Redirect } from "react-router-dom";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -40,6 +40,9 @@ function App() {
           <Switch>
             <Route exact path="/" component={PlayerPage} />
             <Route exact path="/edit" component={EditPage} />
+            <Route>
+              <Redirect to="/"></Redirect>
+            </Route>
           </Switch>
         </Layout>
         {shotFooter ? <Footer /> : null}
