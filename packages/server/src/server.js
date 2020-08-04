@@ -34,7 +34,7 @@ const init = async () => {
 
   live(fromInfo).then(() => {
     app.listen(port, () => {
-      console.log(`Running server on port ${port}`);
+      console.log(`Running server on http://localhost:${port}`);
     });
   });
 };
