@@ -7854,10 +7854,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"isbot@npm:^3.0.5":
-  version: 3.0.5
-  resolution: "isbot@npm:3.0.5"
-  checksum: e750dc477ad80f496ec333127b456444c52609c90b04357853742cfe9d9146a8d6b657f0df7f56c8e473af9fd30839dc1b7e5c9a05857aa1b686e0072086592e
+"isbot@npm:^3.0.7":
+  version: 3.0.7
+  resolution: "isbot@npm:3.0.7"
+  checksum: 64910259c34edfbe00c40c63ad5b0a11809345b657a9a1875f473bee3f2c0317f4fb9c6da2a8f54cd449149f7a6ac083b04848b5df52340618f1a1110c7b88f4
   languageName: node
   linkType: hard
 
@@ -12954,7 +12954,7 @@ resolve@1.15.0:
     eslint-plugin-standard: ^4.0.1
     express: ^4.17.1
     http-proxy: ^1.18.1
-    isbot: ^3.0.5
+    isbot: ^3.0.7
     mongodb: ^3.6.0
     pug: ^3.0.0
   languageName: unknown
