@@ -6,7 +6,10 @@
 
 #player .icon {
   width: 10rem;
-  display: block;
+  height: 5rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   margin: 10px auto;
 }
 
