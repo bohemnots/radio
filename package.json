@@ -9,6 +9,6 @@
     "server": "yarn workspace server"
   },
   "devDependencies": {
-    "eslint": "^7.6.0"
+    "eslint": "^7.8.1"
   }
 }
