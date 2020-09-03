@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Howl } from "howler";
 
-import useMeta from "../hooks/useMeta";
+import { useMeta } from "../hooks";
 
 import "./styles/player.css";
 import { streamUrl } from "../config";
@@ -29,43 +29,49 @@ export default function Player() {
     return new Howl({
       src: streamUrl,
       html5: true,
-      autoplay: true
-    })
-  }, [])
-
+      autoplay: true,
+    });
+  }, []);
 
   useEffect(() => {
-    if ('mediaSession' in navigator) {
+    if ("mediaSession" in navigator) {
       // eslint-disable-next-line
       navigator.mediaSession.metadata = new MediaMetadata({
         title: t1,
         artwork: [
-          { src: 'https://bohemnotsradio.com/favicon.ico', type: 'image/x-icon' }
-        ]
+          {
+            src: "https://bohemnotsradio.com/favicon.ico",
+            type: "image/x-icon",
+          },
+        ],
       });
     }
   }, [t1]);
 
   useEffect(() => {
-    audio.on('stop', () => setIsPlaying(false))
-    audio.on('play', () => setIsPlaying(true))
-  }, [audio])
+    audio.on("stop", () => setIsPlaying(false));
+    audio.on("play", () => setIsPlaying(true));
+  }, [audio]);
 
   const play = () => {
     audio.play();
-  }
+  };
   const pause = () => {
     audio.stop();
-  }
+  };
 
   return (
     <div id="player">
-      <div className="icon" style={{ width: `${size}rem` }} onClick={isPlaying ? pause : play}>
+      <div
+        className="icon"
+        style={{ width: `${size}rem` }}
+        onClick={isPlaying ? pause : play}
+      >
         {isPlaying ? (
           <Pause color={actionColor} />
         ) : (
-            <Play color={actionColor} />
-          )}
+          <Play color={actionColor} />
+        )}
       </div>
       <div id="player-meta">
         <div
@@ -80,17 +86,18 @@ export default function Player() {
         >
           <div>{t2}</div>
         </div>
-        {link ?
+        {link ? (
           <div className="t t2">
             <a
               style={{ color: linkColor, backgroundColor: linkBackground }}
               target="_blank"
               rel="noopener noreferrer"
-              href={link}>
+              href={link}
+            >
               {linkTitle || link}
             </a>
           </div>
-          : null}
+        ) : null}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 
-import useMeta from "../hooks/useMeta";
+import { useMeta } from "../hooks";
 import { metadataUrl } from "../config";
 
 import "./styles/edit.css";
@@ -26,24 +26,24 @@ export default function EditPage() {
       t2Background: target.t2Background.value,
       actionColor: target.actionColor.value,
       size: target.size.value,
-      password: target.password.value
+      password: target.password.value,
     };
 
     fetch(metadataUrl, {
       method: "PATCH",
       body: JSON.stringify(newData),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           setMessage("success");
         } else {
           throw new Error(response.statusText);
         }
       })
-      .catch(err => setMessage(err.message));
+      .catch((err) => setMessage(err.message));
   }
   return (
     <div id="edit">
@@ -52,7 +52,7 @@ export default function EditPage() {
           <tbody>
             <tr>
               <th align="center" colSpan="3">
-                <label >Text 1</label>
+                <label>Text 1</label>
               </th>
             </tr>
             <tr>
@@ -60,11 +60,7 @@ export default function EditPage() {
                 <label htmlFor="text1">Value: </label>
               </td>
               <td>
-                <input
-                  type="text"
-                  name="text1"
-                  defaultValue={meta.text1}
-                />
+                <input type="text" name="text1" defaultValue={meta.text1} />
               </td>
             </tr>
             <tr>
@@ -101,7 +97,7 @@ export default function EditPage() {
             </tr>
             <tr>
               <th align="center" colSpan="3">
-                <label >Text 2</label>
+                <label>Text 2</label>
               </th>
             </tr>
             <tr>
@@ -109,11 +105,7 @@ export default function EditPage() {
                 <label htmlFor="text2">Value: </label>
               </td>
               <td>
-                <textarea
-                  type="text"
-                  name="text2"
-                  defaultValue={meta.text2}
-                />
+                <textarea type="text" name="text2" defaultValue={meta.text2} />
               </td>
             </tr>
             <tr>
@@ -158,11 +150,7 @@ export default function EditPage() {
                 <label htmlFor="link">Value: </label>
               </td>
               <td>
-                <input
-                  type="text"
-                  name="link"
-                  defaultValue={meta.link}
-                />
+                <input type="text" name="link" defaultValue={meta.link} />
               </td>
             </tr>
             <tr>
@@ -237,15 +225,13 @@ export default function EditPage() {
                 <label htmlFor="size">Size in 'rem': </label>
               </td>
               <td>
-                <input
-                  type="text"
-                  name="size"
-                  defaultValue={meta.size}
-                />
+                <input type="text" name="size" defaultValue={meta.size} />
               </td>
             </tr>
             <tr>
-              <td colSpan="3"><hr /></td>
+              <td colSpan="3">
+                <hr />
+              </td>
             </tr>
             <tr>
               <td>

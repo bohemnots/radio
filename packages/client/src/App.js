@@ -6,10 +6,11 @@ import Header from "./components/Header";
 import EditPage from "./components/Edit";
 import PlayerPage from "./components/Player";
 
-import useMeta from "./hooks/useMeta";
+import { useMeta } from "./hooks";
 
 import { defaultTheme } from "./config";
 import Layout from "./components/Layout";
+import { AppContext, defaultAppContext } from "./context";
 
 function App() {
   const [art, setArt] = React.useState(null);
@@ -33,21 +34,23 @@ function App() {
   }
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <div className={meta.theme || defaultTheme}>
-        <Header />
-        <Layout>
-          <Switch>
-            <Route exact path="/" component={PlayerPage} />
-            <Route exact path="/edit" component={EditPage} />
-            <Route>
-              <Redirect to="/"></Redirect>
-            </Route>
-          </Switch>
-        </Layout>
-        {shotFooter ? <Footer /> : null}
-      </div>
-    </BrowserRouter>
+    <AppContext.Provider value={defaultAppContext}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <div className={meta.theme || defaultTheme}>
+          <Header />
+          <Layout>
+            <Switch>
+              <Route exact path="/" component={PlayerPage} />
+              <Route exact path="/edit" component={EditPage} />
+              <Route>
+                <Redirect to="/"></Redirect>
+              </Route>
+            </Switch>
+          </Layout>
+          {shotFooter ? <Footer /> : null}
+        </div>
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 }
 
