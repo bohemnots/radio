@@ -15,3 +15,6 @@ build
 !.yarn/pnpify
 !.yarn/versions
 .pnp.*
+
+# IDE / Editor
+.vscode
