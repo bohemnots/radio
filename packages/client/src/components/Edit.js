@@ -17,6 +17,7 @@ export default function EditPage() {
       text1: target.text1.value,
       text2: target.text2.value,
       link: target.link.value,
+      linkTitle: target.linkTitle.value,
       linkColor: target.linkColor.value,
       linkBackground: target.linkBackground.value,
       imgUrl: target.imgUrl.value,
