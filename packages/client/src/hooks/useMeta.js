@@ -3,7 +3,7 @@ import React from "react";
 import { metadataUrl, metadataUpdateInterval } from "../config";
 
 export function useMeta() {
-  const [isLoading, setIsLoading] = React.useState(false);
+  const isLoading = React.useRef(false);
 
   const [meta, setMeta] = React.useState({
     text1: "",
@@ -14,7 +14,8 @@ export function useMeta() {
 
   React.useEffect(() => {
     const id = setInterval(() => {
-      if (isLoading) return;
+      if (isLoading.current) return;
+      isLoading.current = true;
       fetch(metadataUrl)
         .then((response) => {
           return response.json().then((data) => {
@@ -25,7 +26,7 @@ export function useMeta() {
           });
         })
         .catch((err) => {})
-        .finally(() => setIsLoading(false));
+        .finally(() => isLoading.current = false);
     }, metadataUpdateInterval);
 
     return () => clearInterval(id);
