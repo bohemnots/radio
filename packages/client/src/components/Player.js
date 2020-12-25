@@ -1,14 +1,16 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Howl } from "howler";
-
+import { useParams } from "react-router-dom";
 import { useMeta } from "../hooks";
 
 import "./styles/player.css";
-import { streamUrl } from "../config";
+import * as config from "../config";
 
 export default function Player() {
+  const params = useParams();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [streamUrl, setStreamUrl] = useState(config.streamA);
   const meta = useMeta();
 
   const t1 = meta ? meta.text1 || meta.trackName : "";
@@ -24,6 +26,9 @@ export default function Player() {
   const t2Color = meta.t2Color || "";
   const t2Background = meta.t2Background || "";
   const actionColor = meta.actionColor || "none"; // to hide icon until color available
+  const showSecondStream = meta.showSecondStream || false;
+  const streamATitle = meta.streamATitle || false;
+  const streamBTitle = meta.streamBTitle || false;
   const size = meta.size || 10; // to hide icon until color available
 
   const audio = useMemo(() => {
@@ -32,7 +37,15 @@ export default function Player() {
       html5: true,
       autoplay: true,
     });
-  }, []);
+  }, [streamUrl]);
+
+  useEffect(() => {
+    if ((params.stream + "").toLowerCase() === "b") {
+      setStreamUrl(config.streamB);
+    } else if (streamUrl !== config.streamA) {
+      setStreamUrl(config.streamA);
+    }
+  }, [params, streamUrl]);
 
   useEffect(() => {
     if ("mediaSession" in navigator) {
@@ -116,6 +129,19 @@ export default function Player() {
             </a>
           </div>
         ) : null}
+        {showSecondStream ? (
+          <div className="t t2">
+            <a
+              style={{ color: linkColor, backgroundColor: linkBackground }}
+              rel="noopener noreferrer"
+              href={params.stream === "a" ? "/b" : "/a"}
+            >
+              {streamUrl === config.streamA
+                ? streamBTitle || "Stream A"
+                : streamATitle || "StreamB"}
+            </a>
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -176,7 +202,7 @@ const Loading = ({ color }) => {
           repeatCount="indefinite"
         />
       </circle>
-      <circle cx="60" cy="15" r="9" fi>
+      <circle cx="60" cy="15" r="9">
         <animate
           attributeName="r"
           from="15"
