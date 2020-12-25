@@ -40,10 +40,10 @@ function App() {
           <Header />
           <Layout>
             <Switch>
-              <Route exact path="/" component={PlayerPage} />
               <Route exact path="/edit" component={EditPage} />
+              <Route exact path="/:stream" component={PlayerPage} />
               <Route>
-                <Redirect to="/"></Redirect>
+                <Redirect to="/a"></Redirect>
               </Route>
             </Switch>
           </Layout>
