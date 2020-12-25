@@ -25,6 +25,9 @@ export default function EditPage() {
       t1Background: target.t1Background.value,
       t2Color: target.t2Color.value,
       t2Background: target.t2Background.value,
+      showSecondStream: target.showSecondStream.checked,
+      streamATitle: target.streamATitle.value,
+      streamBTitle: target.streamBTitle.value,
       actionColor: target.actionColor.value,
       size: target.size.value,
       password: target.password.value,
@@ -187,6 +190,42 @@ export default function EditPage() {
                   type="text"
                   name="linkBackground"
                   defaultValue={meta.linkBackground}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="showSecondStream">Show Second Stream: </label>
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  name="showSecondStream"
+                  defaultChecked={meta.showSecondStream}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="streamATitle">Stream A Title: </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="streamATitle"
+                  defaultValue={meta.streamATitle}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="streamBTitle">Stream B Title: </label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="streamBTitle"
+                  defaultValue={meta.streamBTitle}
                 />
               </td>
             </tr>
