@@ -5,6 +5,7 @@ export const defaultAppContext = {
   setLoading(value) {
     this.isLoading = value;
   },
+  meta: {}
 }
 
 export const AppContext = React.createContext(defaultAppContext);

@@ -1,12 +1,12 @@
 import React from "react";
 
-import { useMeta } from "../hooks";
+import { useAppContext } from "../hooks";
 import { metadataUrl } from "../config";
 
 import "./styles/edit.css";
 
 export default function EditPage() {
-  const meta = useMeta();
+  const { meta } = useAppContext();
   const [message, setMessage] = React.useState("");
 
   function onSubmit(e) {
@@ -25,9 +25,7 @@ export default function EditPage() {
       t1Background: target.t1Background.value,
       t2Color: target.t2Color.value,
       t2Background: target.t2Background.value,
-      showSecondStream: target.showSecondStream.checked,
-      streamATitle: target.streamATitle.value,
-      streamBTitle: target.streamBTitle.value,
+      streamUrl: target.streamUrl.value,
       actionColor: target.actionColor.value,
       size: target.size.value,
       password: target.password.value,
@@ -194,38 +192,19 @@ export default function EditPage() {
               </td>
             </tr>
             <tr>
-              <td>
-                <label htmlFor="showSecondStream">Show Second Stream: </label>
-              </td>
-              <td>
-                <input
-                  type="checkbox"
-                  name="showSecondStream"
-                  defaultChecked={meta.showSecondStream}
-                />
-              </td>
+              <th align="center" colSpan="3">
+                <label>Stream</label>
+              </th>
             </tr>
             <tr>
               <td>
-                <label htmlFor="streamATitle">Stream A Title: </label>
+                <label htmlFor="streamUrl">Stream URL: </label>
               </td>
               <td>
                 <input
                   type="text"
-                  name="streamATitle"
-                  defaultValue={meta.streamATitle}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label htmlFor="streamBTitle">Stream B Title: </label>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  name="streamBTitle"
-                  defaultValue={meta.streamBTitle}
+                  name="streamUrl"
+                  defaultChecked={meta.streamUrl}
                 />
               </td>
             </tr>
