@@ -204,7 +204,7 @@ export default function EditPage() {
                 <input
                   type="text"
                   name="streamUrl"
-                  defaultChecked={meta.streamUrl}
+                  defaultValue={meta.streamUrl}
                 />
               </td>
             </tr>
