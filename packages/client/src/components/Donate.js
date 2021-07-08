@@ -108,18 +108,17 @@ const Item = (props) => {
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
-
     document.execCommand("copy");
+    textArea.remove();
   });
   return (
     <ItemStyled
       ref={(_ref) => {
         ref.current = _ref;
       }}
-      onClick={fn}
     >
       {props.children}
-      <button>COPY</button>
+      <button onClick={fn}>COPY</button>
     </ItemStyled>
   );
 };
