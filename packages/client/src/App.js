@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import EditPage from "./components/Edit";
 import FestPage from "./components/Fest";
+import DonatePage from "./components/Donate";
 import PlayerPage from "./components/Player";
 
 import { defaultTheme } from "./config";
@@ -23,6 +24,7 @@ function App() {
                 {showHeader ? <Header /> : null}
                 <Layout>
                   <Switch>
+                    <Route exact path="/donate" component={DonatePage} />
                     <Route exact path="/fest" component={FestPage} />
                     <Route exact path="/edit" component={EditPage} />
                     <Route exact path="/" component={PlayerPage} />
