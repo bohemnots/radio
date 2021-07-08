@@ -6,6 +6,7 @@ COPY packages/client/package.json packages/client/package.json
 COPY package.json package.json
 COPY .yarnrc.yml .yarnrc.yml
 COPY .yarn .yarn
+COPY .eslintrc.js .eslintrc.js
 COPY yarn.lock yarn.lock
 
 RUN yarn
