@@ -6,6 +6,7 @@ export const defaultAppContext = {
     this.isLoading = value;
   },
   setShowFooter: () => {},
+  setShowHeader: () => {},
   meta: {},
 };
 

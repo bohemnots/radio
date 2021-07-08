@@ -6,6 +6,7 @@ import { AppContext, defaultAppContext } from "../context";
 export const AppProvider = (props) => {
   const [art, setArt] = React.useState(null);
   const [showFooter, setShowFooter] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
   const isLoading = React.useRef(false);
 
   const [meta, setMeta] = React.useState({
@@ -58,7 +59,14 @@ export const AppProvider = (props) => {
 
   return (
     <AppContext.Provider
-      value={{ ...defaultAppContext, meta, showFooter, setShowFooter }}
+      value={{
+        ...defaultAppContext,
+        meta,
+        showFooter,
+        setShowFooter,
+        showHeader,
+        setShowHeader,
+      }}
     >
       {props.children}
     </AppContext.Provider>

@@ -4,6 +4,7 @@ import { Switch, BrowserRouter, Route, Redirect } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import EditPage from "./components/Edit";
+import FestPage from "./components/Fest";
 import PlayerPage from "./components/Player";
 
 import { defaultTheme } from "./config";
@@ -15,13 +16,14 @@ function App() {
   return (
     <AppProvider>
       <AppContext.Consumer>
-        {({ meta, showFooter }) => {
+        {({ meta, showFooter, showHeader }) => {
           return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
               <div className={meta.theme || defaultTheme}>
-                <Header />
+                {showHeader ? <Header /> : null}
                 <Layout>
                   <Switch>
+                    <Route exact path="/fest" component={FestPage} />
                     <Route exact path="/edit" component={EditPage} />
                     <Route exact path="/" component={PlayerPage} />
                     <Route>
