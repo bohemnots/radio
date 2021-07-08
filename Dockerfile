@@ -1,4 +1,4 @@
-FROM node:14.4.0-alpine3.12 AS client
+FROM node:16-alpine AS client
 
 WORKDIR /usr/src
 
@@ -13,7 +13,7 @@ RUN yarn
 COPY packages/client packages/client
 RUN yarn client build
 
-FROM node:14.4.0-alpine3.12 AS server
+FROM node:16-alpine AS server
 
 WORKDIR /usr/src
 
