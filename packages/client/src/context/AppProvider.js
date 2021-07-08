@@ -57,7 +57,9 @@ export const AppProvider = (props) => {
   }
 
   return (
-    <AppContext.Provider value={{ ...defaultAppContext, meta, showFooter }}>
+    <AppContext.Provider
+      value={{ ...defaultAppContext, meta, showFooter, setShowFooter }}
+    >
       {props.children}
     </AppContext.Provider>
   );

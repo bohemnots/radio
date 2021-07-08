@@ -15,8 +15,8 @@ export default function Footer() {
   return (
     <nav className="social-links">
       <ul>
-        <li>
-          <a className={'donate'}  href={pt} target={target} rel={rel}>
+        <li style={{ display: "none" }}>
+          <a className={"donate"} href={pt} target={target} rel={rel}>
             <img src="images/donate.svg" width="60" alt="donate" />
           </a>
         </li>
