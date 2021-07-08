@@ -3,7 +3,8 @@ const fs = require("fs");
 
 const express = require("express");
 
-const buildDir = process.env.BUILD_DIR || path.join(process.cwd(), "../client/build");
+const buildDir =
+  process.env.BUILD_DIR || path.join(process.cwd(), "../client/build");
 
 const indexHtml = path.join(buildDir, "index.html");
 

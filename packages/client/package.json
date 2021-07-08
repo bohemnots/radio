@@ -20,7 +20,9 @@
     "styled-components": "^5.3.0"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "../../.eslintrc.js"
+    ]
   },
   "name": "client",
   "private": true,

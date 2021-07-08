@@ -1,9 +1,9 @@
-const path = require('path');
+const path = require("path");
 
-const { MongoClient } = require('mongodb');
+const { MongoClient } = require("mongodb");
 
-const metadataId = 'metadata';
-const systemId = 'system';
+const metadataId = "metadata";
+const systemId = "system";
 const mongoUri = process.env.MONGODB_URI;
 const dbName = path.basename(process.env.MONGODB_URI);
 
@@ -14,13 +14,13 @@ if (!mongoUri) {
 }
 
 const client = new MongoClient(mongoUri, {
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
-async function updateMetadata (update) {
+async function updateMetadata(update) {
   await client
     .db(dbName)
-    .collection('settings')
+    .collection("settings")
     .updateOne({ _id: metadataId }, { $set: update }, { upsert: true });
 
   last = null;
@@ -33,7 +33,7 @@ const getMetadata = async () => {
 
   last = await client
     .db(dbName)
-    .collection('settings')
+    .collection("settings")
     .findOne({ _id: metadataId });
 
   return last;
@@ -51,19 +51,19 @@ const fromInfo = (tracks) => {
 
     updateMetadata(update)
       .then(() => console.log(`updated track name to "${trackName}"`))
-      .catch(err => console.error(`failed to set name: ${err.message}`));
+      .catch((err) => console.error(`failed to set name: ${err.message}`));
   }
 };
 
-const checkPassword = async password => {
+const checkPassword = async (password) => {
   const system = await client
     .db(dbName)
-    .collection('settings')
+    .collection("settings")
     .findOne({ _id: systemId });
 
   if (system && system.password) {
     if (password !== system.password) {
-      throw Error('invalid password');
+      throw Error("invalid password");
     }
   }
 };
@@ -73,5 +73,5 @@ module.exports = {
   client,
   fromInfo,
   getMetadata,
-  updateMetadata
+  updateMetadata,
 };
