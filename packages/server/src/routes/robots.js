@@ -18,3 +18,10 @@ botRouter.get("/", (req, res) => {
     meta,
   });
 });
+
+botRouter.get("/fest", (req, res) => {
+  const meta = req.app.get("meta");
+  res.render("fest", {
+    meta,
+  });
+});
