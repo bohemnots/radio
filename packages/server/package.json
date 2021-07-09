@@ -1,7 +1,4 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "private": true,
   "bugs": {
     "url": "https://github.com/hsanoyan/bohemnots.github.io/issues"
   },
@@ -22,18 +19,23 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^5.0.0"
+    "eslint-plugin-standard": "^5.0.0",
+    "nodemon": "^2.0.10"
   },
   "homepage": "https://github.com/hsanoyan/bohemnots.github.io#readme",
   "keywords": [],
   "license": "ISC",
   "main": "src/server.js",
+  "name": "server",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hsanoyan/bohemnots.github.io.git"
   },
   "scripts": {
+    "dev": "yarn nodemon src/server.js",
     "start": "yarn node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "version": "1.0.0"
 }
