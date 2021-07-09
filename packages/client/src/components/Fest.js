@@ -23,10 +23,6 @@ const View = styled.div`
 const P = styled.p`
   font-size: 11pt;
   text-align: center;
-
-  @media only screen and (max-width: 600px) {
-    text-align: justify;
-  }
 `;
 
 const Header = styled.header`
