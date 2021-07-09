@@ -13,11 +13,11 @@ const Container = styled.div`
 const View = styled.div`
   max-width: 500px;
   margin: auto;
-`;
 
-const P = styled.p`
-  font-size: 11pt;
-  text-align: center;
+  @media only screen and (max-width: 600px) {
+    max-width: unset;
+    margin: 12px;
+  }
 `;
 
 const Header = styled.header`
@@ -49,6 +49,7 @@ const SubTitle = styled.div`
   width: 100%;
   text-align: center;
   margin-bottom: 100px;
+
   a {
     color: white;
     text-align: center;

@@ -13,11 +13,20 @@ const Container = styled.div`
 const View = styled.div`
   max-width: 500px;
   margin: auto;
+
+  @media only screen and (max-width: 600px) {
+    max-width: unset;
+    margin: 12px;
+  }
 `;
 
 const P = styled.p`
   font-size: 11pt;
   text-align: center;
+
+  @media only screen and (max-width: 600px) {
+    text-align: justify;
+  }
 `;
 
 const Header = styled.header`
@@ -25,11 +34,10 @@ const Header = styled.header`
   flex-direction: row;
   justify-content: space-between;
   font-size: 11pt;
+  padding: 12px;
 `;
 
-const HeaderItem = styled.span`
-  margin: 12px;
-`;
+const HeaderItem = styled.span``;
 
 const Link = styled.a`
   font-size: 11pt;
