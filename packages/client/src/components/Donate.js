@@ -146,11 +146,11 @@ export default function Fest(props) {
         <Title>Composers' Union, Dilijan</Title>
         <SubTitle></SubTitle>
         <Item copyValue={"4847040001053292"}>
-          Convers Cart / Sona Simonyan 4847040001053292
+          Converse Card / Sona Simonyan 4847040001053292
         </Item>
         <Item copyValue={"553765409"}>Idram ID / Sona Simonyan 553765409</Item>
         <Item copyValue={"vananeborian@gmail.com"}>
-          Paypal / vananeborian@gmail.com
+          PayPal / Vanane Borian vanasik@gmail.com
         </Item>
       </View>
     </Container>
